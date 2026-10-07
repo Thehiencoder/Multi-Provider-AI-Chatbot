@@ -101,23 +101,38 @@ SLIDING_WINDOW_SIZE=20
 
 ---
 
-### 2. Option A: Run with Docker Compose (Recommended)
+### 2. Option A: One-Click Launch with PowerShell (Windows - Recommended)
 
-Start Redis and the FastAPI Backend in isolated containers:
-```bash
-docker compose up -d
+If you are on Windows, you can start all services (Redis, FastAPI backend, and React frontend) and automatically open the application in your browser with a single command:
+
+```powershell
+.\run.ps1
 ```
 
-Then launch the frontend client:
-```bash
-cd frontend
-npm install
-npm run dev
+To stop all running containers when you are done:
+```powershell
+.\stop.ps1
 ```
 
 ---
 
-### 3. Option B: Run Locally on Host
+### 3. Option B: Run with Docker Compose (Cross-Platform)
+
+Start all services (Redis, Backend, and Frontend) in detached mode:
+```bash
+docker compose up -d
+```
+
+Once started, open your browser and go to: **`http://localhost:5173`**
+
+To stop all services:
+```bash
+docker compose down
+```
+
+---
+
+### 4. Option C: Run Manually / Locally on Host
 
 #### Start Redis:
 Ensure Redis is running locally on port `6379`, or run a quick Redis container:
